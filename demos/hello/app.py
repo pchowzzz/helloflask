@@ -7,7 +7,7 @@
 """
 import click
 from flask import Flask
-
+from flask import url_for
 app = Flask(__name__)
 
 
@@ -21,7 +21,8 @@ def index():
 @app.route('/hi')
 @app.route('/hello')
 def say_hello():
-    return '<h1>Hello, Flask!</h1>'
+    print(url_for("greet",name="nih"))
+    return '<h1>Hello, Flask!%s!!!!</h1>'%(url_for("greet",name="wq",_external=True))
 
 
 # dynamic route, URL variable default
